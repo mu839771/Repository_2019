@@ -1,0 +1,32 @@
+package com.custom.annotation;
+
+import java.lang.annotation.Annotation;
+
+@interface SmartPhone
+{
+    String os() default "Symbian";
+    int version() default 1;
+}
+
+@SmartPhone(os="Android",version=6)
+class NokiaSeries
+{
+
+}
+
+@MyCustomAnnotation(name="Mukesh",count=5)
+class MyCustomAnnoationUsage
+{
+
+}
+
+public class CustomAnnotationDemo {
+    public static void main(String[] args) {
+        Annotation[] annotations =  MyCustomAnnoationUsage.class.getAnnotations();
+        System.out.println(annotations.length);
+        for(Annotation annotation: annotations)
+        {
+           System.out.println(annotation.annotationType());
+        }
+    }
+}
