@@ -1,0 +1,44 @@
+package com.custom.annotation;
+
+import java.util.Objects;
+
+public class Employee {
+    String eName;
+    int eId;
+
+    public String geteName() {
+        return eName;
+    }
+
+    public void seteName(String eName) {
+        this.eName = eName;
+    }
+
+    public int geteId() {
+        return eId;
+    }
+
+    public void seteId(int eId) {
+        this.eId = eId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Employee employee = (Employee) o;
+        return eId == employee.eId &&
+                Objects.equals(eName, employee.eName);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(eName, eId);
+    }
+
+//    @Override
+//   public int hashCode() {
+//        return 17;
+//    }
+
+}
