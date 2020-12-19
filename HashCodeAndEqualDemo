@@ -1,0 +1,31 @@
+package com.custom.annotation;
+
+import java.util.HashMap;
+import java.util.Map;
+
+public class HashCodeAndEqualDemo {
+    public static void main(String[] args) {
+        Employee e = new Employee();
+        e.seteId(10);
+        e.seteName("Mukesh");
+        Employee e1 = new Employee();
+        e1.seteId(10);
+        e1.seteName("Mukesh");
+
+
+        System.out.println(e.equals(e1));
+        //if we dont override equals method output will false
+        //if we override equals method output will true
+        System.out.println(e.hashCode()+" "+e1.hashCode());
+        //if we dont override hashcode method we will get different hashcode
+        //if we override hashcode method we will get same hashcode
+        Map<Employee,String> map = new HashMap();
+        map.put(e,"Dover Stree,Glasgow");
+        map.put(e1,"Dover Stree,Glasgow");
+
+        System.out.println(map.size());
+        //if we dont override hashcode method we will get output as 2
+        //if we override hashcode method we will get output as 1
+
+    }
+}
